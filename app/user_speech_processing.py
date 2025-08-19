@@ -8,7 +8,7 @@ import re
 
 
 def record_user_speech(file_name: str, frequency: int = 44100, 
-                       duration: int = 10,) -> str:
+                       duration: int = 5,) -> str:
     """
     
     """
@@ -50,11 +50,7 @@ def speech_to_text() -> str:
 def text_processing(speech: str) -> str:
     """
     """
-    clean_speech = speech.lower().strip().replace(" ", "")
+    clean_speech = speech.lower().strip()
     normalized_speech = re.sub(r"[^\w\s]", "", clean_speech)
     return normalized_speech
-
-
-text = speech_to_text()
-print(text_processing(text))
 
