@@ -1,3 +1,4 @@
 *.wav
 *.pyc
 PRIVATE_KEYS.py
+__pychache__
