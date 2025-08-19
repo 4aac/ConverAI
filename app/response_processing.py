@@ -7,6 +7,13 @@ from PRIVATE_KEYS import ELEVENLABS_API_KEY
 from elevenlabs.client import ElevenLabs
 from elevenlabs import play
 
+import ffmpeg
+from pydub import AudioSegment
+
+AudioSegment.converter = "C:/ffmpeg/bin/ffmpeg.exe"
+AudioSegment.ffprobe   = "C:/ffmpeg/bin/ffprobe.exe"
+
+
 
 def response(context: str) -> str:
     """
@@ -15,7 +22,7 @@ def response(context: str) -> str:
     chat_response = client.chat.completions.create(
         model="gpt-4o",
         messages=[
-            {"role": "system", "content": "You are an English speaking practice assistant."},
+            {"role": "system", "content": "You are an Spanish speaking practice assistant."},
             {"role": "user", "content": context}
         ]
     )
