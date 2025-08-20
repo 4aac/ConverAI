@@ -1,4 +1,4 @@
 *.wav
 *.pyc
 PRIVATE_KEYS.py
-__pychache__
+__pycache__
