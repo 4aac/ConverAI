@@ -1,0 +1,193 @@
+:root{
+  --bg: #0f1226;
+  --panel: #161a37;
+  --text: #e8eaf6;
+  --muted: #a9add6;
+  --accent: #6c7cff;
+  --accent-strong: #4f5cff;
+  --ok: #38d39f;
+  --warn: #ffd166;
+  --rec: #ff5a67;
+  --shadow: 0 10px 30px rgba(0,0,0,0.25);
+  --radius: 16px;
+  --gap: 16px;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(15,18,38,0.8);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.site-header h1{
+  margin: 0;
+  padding: 16px clamp(16px, 4vw, 28px);
+  font-size: clamp(20px, 4vw, 28px);
+  letter-spacing: .5px;
+}
+
+.container{
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px clamp(16px, 4vw, 28px) 48px;
+  display: grid;
+  gap: 24px;
+}
+
+.hero{
+  display: grid;
+  place-items: center;
+  background: var(--panel);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(20px, 6vw, 40px);
+}
+.robot-image{
+  width: min(320px, 80vw);
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  object-fit: contain;
+}
+
+.panel{
+  background: var(--panel);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.start-row{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.status-pill{
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  color: var(--muted);
+  font-size: 14px;
+  min-width: 90px;
+  text-align: center;
+}
+
+.status--ready   { color: #a1e3ff; border-color: rgba(161,227,255,.25); }
+.status--record  { color: #fff; background: rgba(255,90,103,.13); border-color: rgba(255,90,103,.35); }
+.status--process { color: var(--warn); }
+.status--speak   { color: var(--ok); }
+
+.controls{
+  display: grid;
+  gap: 16px;
+}
+
+.hint{
+  color: var(--muted);
+  font-size: 14px;
+}
+.kbd{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+}
+@media (min-width: 720px){
+  .grid{ grid-template-columns: auto 1fr; align-items: center; }
+}
+
+.btn{
+  appearance: none;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 22px;
+  font-weight: 700;
+  letter-spacing: .2px;
+  cursor: pointer;
+  background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(76,91,255,0.35);
+  transition: transform .06s ease, box-shadow .2s ease, filter .2s ease;
+}
+.btn:hover{ filter: brightness(1.05); box-shadow: 0 10px 22px rgba(76,91,255,0.45); }
+.btn:active{ transform: translateY(1px) scale(0.995); }
+
+.btn-outline{
+  appearance: none; cursor: default;
+  border: 2px dashed rgba(255,255,255,0.25);
+  background: transparent; color: var(--muted);
+  border-radius: 12px; padding: 16px 18px; font-weight: 700;
+}
+.btn-outline.active{
+  border-style: solid; color: #fff; cursor: pointer;
+  background: rgba(108,124,255,0.14); border-color: rgba(108,124,255,0.55);
+}
+.btn-outline.recording{
+  border-color: var(--rec);
+  box-shadow: 0 0 0 4px rgba(255,90,103,0.15) inset;
+}
+
+.word-box{
+  width: 100%;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  font-size: clamp(16px, 3.5vw, 22px);
+  font-weight: 600;
+  color: var(--muted);
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.io{
+  display: grid;
+  gap: 16px;
+}
+@media (min-width: 720px){
+  .io{ grid-template-columns: 1fr 1fr; }
+}
+.io-col h3{ margin: 0 0 8px; font-size: 14px; color: var(--muted); }
+.bubble{
+  min-height: 64px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  line-height: 1.5;
+  color: var(--text);
+}

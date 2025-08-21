@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ConverAI</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <h1>ConverAI</h1>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <img class="robot-image" src="robot.png" alt="AI robot"/>
+    </section>
+
+    <section class="panel">
+      <div class="row start-row">
+        <button id="btn-start" class="btn">Start</button>
+        <div class="status-pill" id="status-pill" aria-live="polite">Idle</div>
+      </div>
+
+      <div class="controls" id="controls" hidden>
+        <div class="hint">
+          <span class="kbd">SPACE</span> hold to talk · release to send
+        </div>
+
+        <div class="grid">
+          <button id="btn-talk" class="btn-outline" aria-label="Press and hold SPACE to talk" disabled>
+            Press & hold SPACE to talk
+          </button>
+
+          <div class="word-box" id="prompt-word" aria-live="polite">…</div>
+        </div>
+
+        <div class="io">
+          <div class="io-col">
+            <h3>You</h3>
+            <div id="user-text" class="bubble">—</div>
+          </div>
+          <div class="io-col">
+            <h3>Assistant</h3>
+            <div id="assistant-text" class="bubble">—</div>
+            <audio id="assistant-audio" preload="none"></audio>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
