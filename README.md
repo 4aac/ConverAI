@@ -14,7 +14,58 @@ Users can speak into their microphone, receive real-time transcriptions, get AI-
 
 ## Installation
 
-1. Clone the repository
+1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/ConverAI.git
    cd ConverAI/app/backend
+   ```
+
+2. Install Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Set up API keys:
+   - Create a file `backend/services/PRIVATE_KEYS.py` with your OpenAI and ElevenLabs API keys:
+     ```python
+     OPENAI_API_KEY = "your-openai-key"
+     ELEVENLABS_API_KEY = "your-elevenlabs-key"
+     ```
+
+4. Run the backend server:
+   ```bash
+   python app.py
+   ```
+
+5. Open `http://localhost:5000` in your browser.
+
+## Usage
+
+- Click "Start" to enable microphone access.
+- Hold the SPACE key or click "Press & hold SPACE to talk" to record your speech.
+- Release to send your message. The app will transcribe, reply, and play the AI's response.
+
+## Dependencies
+
+- Python 3.8+
+- Flask
+- OpenAI SDK
+- ElevenLabs SDK
+- Werkzeug
+
+## Folder Structure
+
+- `app/backend/` — Python backend (API, AI services)
+- `app/public/` — Frontend (HTML, CSS, JS, media)
+- `app/backend/data/topics.txt` — Conversation topics
+
+## Credits
+
+- Speech-to-Text: [OpenAI Whisper](https://platform.openai.com/docs/guides/speech-to-text)
+- Conversational AI: [OpenAI GPT-4o](https://platform.openai.com/docs/models/gpt-4o)
+- Text-to-Speech: [ElevenLabs](https://elevenlabs.io/)
+- UI Design: Custom
+
+## License
+
+This project is licensed under the MIT License.
